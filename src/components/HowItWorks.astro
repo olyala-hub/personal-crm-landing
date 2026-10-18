@@ -1,0 +1,31 @@
+---
+import CtaButton from "./ui/CtaButton.astro";
+import SectionCard from "./ui/SectionCard.astro";
+import SectionTitle from "./ui/SectionTitle.astro";
+import { steps } from "../data/content";
+---
+
+<SectionCard id="how" class="flex scroll-mt-20 flex-col gap-4.5 lg:gap-8">
+  <SectionTitle>Начните за пару минут</SectionTitle>
+  <ol
+    class="flex flex-col gap-4 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] lg:gap-8"
+  >
+    {
+      steps.map((step, i) => (
+        <li class="flex gap-3.5 lg:flex-col">
+          <div class="flex size-8 flex-none items-center justify-center rounded-full bg-primary text-15 font-bold text-white lg:size-10 lg:text-17">
+            {i + 1}
+          </div>
+          {/* On desktop the wrapper dissolves and its children share the step's gap */}
+          <div class="flex flex-col gap-0.75 pt-1 lg:contents">
+            <h3 class="text-16 font-semibold lg:text-19">{step.title}</h3>
+            <p class="text-14 leading-145 text-ink-secondary lg:text-16 lg:leading-150">
+              {step.text}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+  <CtaButton class="h-13 text-17 shadow-cta lg:self-start lg:px-7">Создать свою книжку</CtaButton>
+</SectionCard>

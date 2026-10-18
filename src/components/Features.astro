@@ -1,0 +1,37 @@
+---
+import SectionTitle from "./ui/SectionTitle.astro";
+import { features } from "../data/content";
+---
+
+<section id="features" class="flex scroll-mt-20 flex-col gap-2 lg:gap-4">
+  <SectionTitle class="mx-2 mt-3 mb-1 text-balance lg:mt-8 lg:mb-2">
+    Всё важное о человеке — на одном экране
+  </SectionTitle>
+  <div
+    class="flex flex-col gap-2 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] lg:gap-3"
+  >
+    {
+      features.map((feature, i) => (
+        <article class="flex gap-3.5 rounded-20 bg-surface p-4.5 lg:flex-col lg:p-7">
+          <div class="flex size-10 flex-none items-center justify-center rounded-12 bg-primary-soft text-15 font-bold text-primary lg:size-11 lg:text-16">
+            {String(i + 1).padStart(2, "0")}
+          </div>
+          {/* On desktop the wrapper dissolves and its children share the card's gap */}
+          <div class:list={["flex flex-col lg:contents", feature.tags ? "gap-2" : "gap-1"]}>
+            <h3 class="text-17 font-semibold lg:text-20">{feature.title}</h3>
+            <p class="text-15 leading-145 text-ink-secondary lg:text-16 lg:leading-150">
+              {feature.text}
+            </p>
+            {feature.tags && (
+              <ul class="flex flex-wrap gap-1.5">
+                {feature.tags.map((tag) => (
+                  <li class="rounded-8 bg-page px-2.5 py-1.25 text-13 text-ink-secondary">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

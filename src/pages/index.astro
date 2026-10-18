@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Situations from "../components/Situations.astro";
+import Features from "../components/Features.astro";
+import Reminders from "../components/Reminders.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Numbers from "../components/Numbers.astro";
+import Audience from "../components/Audience.astro";
+import Reviews from "../components/Reviews.astro";
+import Pricing from "../components/Pricing.astro";
+import Privacy from "../components/Privacy.astro";
+import Faq from "../components/Faq.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base
+  title="Лучшая CRM — личная записная книжка для ваших людей"
+  description="Личная записная книжка для людей, которых вы знаете лично. Кто это, откуда вы знакомы, как связаться и о чём договорились — всё в одной карточке. Не для продаж, а чтобы не терять людей и нить разговора."
+>
+  <Header />
+  <div
+    class="mx-auto flex max-w-mobile flex-col gap-3 px-3 pt-3 pb-6 lg:max-w-page lg:gap-4 lg:px-6 lg:pt-4"
+  >
+    <main class="flex flex-col gap-3 lg:gap-4">
+      <Hero />
+      <Situations />
+      <Features />
+      <Reminders />
+      <HowItWorks />
+      <Numbers />
+      <Audience />
+      <Reviews />
+      <Pricing />
+      <Privacy />
+      <Faq />
+      <FinalCta />
+    </main>
+    <Footer />
+  </div>
+</Base>

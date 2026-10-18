@@ -1,0 +1,26 @@
+---
+import SectionCard from "./ui/SectionCard.astro";
+import SectionTitle from "./ui/SectionTitle.astro";
+import { situations } from "../data/content";
+---
+
+<SectionCard class="flex flex-col gap-4 lg:gap-7">
+  <SectionTitle>Так бывает с каждым</SectionTitle>
+  <ol
+    class="flex flex-col lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] lg:gap-3"
+  >
+    {
+      situations.map((text, i) => (
+        <li class="flex gap-3 border-b border-divider py-3 last:border-b-0 lg:flex-col lg:gap-2.5 lg:rounded-16 lg:border-b-0 lg:bg-page lg:p-5">
+          <span class="w-5 text-15 font-semibold text-ink-tertiary lg:w-auto">{i + 1}</span>
+          <span class="flex-1 text-15 leading-145 lg:flex-none lg:text-16">{text}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <p
+    class="rounded-14 bg-primary-soft px-4 py-3.5 text-16 leading-140 font-semibold text-primary-ink lg:rounded-16 lg:px-6 lg:py-5 lg:text-20"
+  >
+    «Лучшая CRM» помнит за вас: людей, контекст и обещания.
+  </p>
+</SectionCard>

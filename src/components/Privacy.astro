@@ -1,0 +1,26 @@
+---
+import SectionCard from "./ui/SectionCard.astro";
+import SectionTitle from "./ui/SectionTitle.astro";
+import { privacy } from "../data/content";
+---
+
+<SectionCard class="flex flex-col gap-3.5 lg:gap-7">
+  <SectionTitle class="mb-0.5 lg:mb-0">Ваши люди — только ваше дело</SectionTitle>
+  <ul
+    class="flex flex-col gap-3.5 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] lg:gap-x-10 lg:gap-y-5"
+  >
+    {
+      privacy.map((text) => (
+        <li class="flex items-start gap-3 lg:gap-3.5">
+          <span
+            class="mt-px flex size-5 flex-none items-center justify-center rounded-full bg-primary lg:size-5.5"
+            aria-hidden="true"
+          >
+            <span class="size-1.5 rounded-full bg-white lg:size-1.75" />
+          </span>
+          <span class="text-15 leading-145 lg:text-16 lg:leading-150">{text}</span>
+        </li>
+      ))
+    }
+  </ul>
+</SectionCard>

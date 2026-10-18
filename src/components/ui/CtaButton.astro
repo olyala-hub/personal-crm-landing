@@ -1,0 +1,23 @@
+---
+import { APP_URL } from "../../config";
+
+interface Props {
+  variant?: "primary" | "soft" | "inverse";
+  class?: string;
+}
+
+const { variant = "primary", class: className } = Astro.props;
+
+const variants = {
+  primary: "bg-primary font-semibold text-white hover:bg-primary-hover",
+  soft: "bg-primary-soft font-semibold text-primary-ink",
+  inverse: "bg-white font-bold text-primary focus-visible:outline-white",
+};
+---
+
+<a
+  href={APP_URL}
+  class:list={["flex items-center justify-center rounded-full", variants[variant], className]}
+>
+  <slot />
+</a>

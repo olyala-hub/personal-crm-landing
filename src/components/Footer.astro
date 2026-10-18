@@ -1,0 +1,25 @@
+---
+import { footerColumns } from "../data/content";
+---
+
+<footer class="flex flex-col gap-5 px-2 pt-3 pb-6 lg:gap-7 lg:pt-8">
+  <nav
+    class="grid grid-cols-2 gap-x-4 gap-y-5 lg:grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] lg:gap-6"
+  >
+    {
+      footerColumns.map((column) => (
+        <div class="flex flex-col gap-2 lg:gap-2.5">
+          <span class="text-13 font-semibold text-ink lg:text-14">{column.title}</span>
+          {column.links.map((link) => (
+            <a href={link.href} class="text-14 text-ink-secondary lg:text-15">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </nav>
+  <p class="text-13 text-ink-tertiary lg:border-t lg:border-footer-border lg:pt-5 lg:text-14">
+    © 2026 «Лучшая CRM». Все права защищены.
+  </p>
+</footer>

@@ -1,0 +1,70 @@
+---
+import CtaButton from "./ui/CtaButton.astro";
+import { heroChips } from "../data/content";
+---
+
+<!-- Phone: two separate white cards. Desktop: one card with two columns. -->
+<section
+  class="flex flex-col gap-3 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] lg:items-center lg:gap-12 lg:rounded-24 lg:bg-surface lg:p-14"
+>
+  <div class="flex flex-col gap-4 rounded-20 bg-surface px-5 py-6 lg:gap-5 lg:rounded-none lg:p-0">
+    <h1
+      class="text-32 leading-112 font-bold tracking-tighter text-balance lg:text-52 lg:leading-108 lg:tracking-tightest"
+    >
+      Помните каждого, с кем вас свела жизнь
+    </h1>
+    <p class="text-16 leading-145 text-pretty text-ink-secondary lg:text-19 lg:leading-150">
+      Личная записная книжка для людей, которых вы знаете лично. Кто это, откуда вы знакомы, как
+      связаться и о чём договорились — всё в одной карточке. Не для продаж, а чтобы не терять людей и
+      нить разговора.
+    </p>
+    <CtaButton class="mt-1 h-13 text-17 shadow-cta lg:h-14 lg:self-start lg:px-8 lg:text-18">
+      Начать бесплатно
+    </CtaButton>
+    <ul class="flex flex-wrap gap-1.5 lg:gap-2">
+      {
+        heroChips.map((chip) => (
+          <li class="rounded-8 bg-page px-2.5 py-1.5 text-13 text-ink-secondary lg:px-3 lg:py-1.75 lg:text-14">
+            {chip}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Illustrative contact preview -->
+  <div class="flex flex-col gap-3 lg:rounded-24 lg:bg-page lg:p-6" aria-hidden="true">
+    <div class="flex flex-col gap-3 rounded-20 bg-surface p-4 lg:gap-3.5 lg:p-5">
+      <div class="flex items-center gap-3 lg:gap-3.5">
+        <div
+          class="flex size-12 items-center justify-center rounded-full bg-primary-soft text-17 font-semibold text-primary lg:size-14 lg:text-19"
+        >
+          ИК
+        </div>
+        <div class="flex flex-1 flex-col gap-0.5 lg:gap-0.75">
+          <span class="text-16 font-semibold lg:text-18">Игорь Котов</span>
+          <span class="text-13 text-ink-tertiary lg:text-14">С горнолыжки в Шерегеше, друг Оли</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        <span
+          class="rounded-6 bg-primary-soft px-2 py-1 text-12 font-semibold text-primary-ink lg:px-2.5 lg:text-13"
+          >горы</span
+        >
+        <span
+          class="rounded-6 bg-primary-soft px-2 py-1 text-12 font-semibold text-primary-ink lg:px-2.5 lg:text-13"
+          >Новосибирск</span
+        >
+      </div>
+      <div class="flex items-center gap-2.5 rounded-12 bg-page px-3 py-2.5 lg:px-3.5 lg:py-3">
+        <div class="size-4.5 rounded-5 border-2 border-primary"></div>
+        <span class="flex-1 text-14 lg:text-15">Скинуть контакт юриста</span>
+        <span class="text-12 text-ink-tertiary lg:text-13">до пт</span>
+      </div>
+    </div>
+    <div class="hidden flex-col gap-1 rounded-20 bg-surface px-5 py-4 lg:flex">
+      <span class="text-13 text-ink-tertiary">Заметка · 12 марта</span>
+      <span class="text-15 leading-145">Собирается в Карелию летом, сын пошёл в первый класс.</span>
+    </div>
+  </div>
+</section>

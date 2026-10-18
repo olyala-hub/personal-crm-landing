@@ -1,0 +1,27 @@
+---
+import SectionTitle from "./ui/SectionTitle.astro";
+import { numbers } from "../data/content";
+---
+
+<section class="flex flex-col gap-2 lg:gap-4">
+  <SectionTitle class="mx-2 mt-3 mb-1 lg:mt-8 lg:mb-2">Что меняется через месяц</SectionTitle>
+  <ul
+    class="grid grid-cols-2 gap-2 lg:grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] lg:gap-3"
+  >
+    {
+      numbers.map((item) => (
+        <li class="flex flex-col gap-1.5 rounded-20 bg-surface p-4 lg:gap-2 lg:p-7">
+          <span class="text-22 leading-115 font-bold text-primary lg:text-30 lg:tracking-tighter">
+            {item.value}
+          </span>
+          <span class="text-13 leading-135 text-ink-secondary lg:text-15 lg:leading-140">
+            {item.label}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="mx-2 mt-1 text-12 text-ink-tertiary lg:mt-0 lg:text-13">
+    * По опросу 1 200 пользователей после первого месяца.
+  </p>
+</section>

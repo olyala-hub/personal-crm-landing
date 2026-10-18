@@ -1,0 +1,21 @@
+---
+import SectionCard from "./ui/SectionCard.astro";
+import SectionTitle from "./ui/SectionTitle.astro";
+import { audience } from "../data/content";
+---
+
+<SectionCard
+  class="flex flex-col gap-3 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] lg:gap-x-14 lg:gap-y-6"
+>
+  <SectionTitle class="mb-1 text-balance lg:mb-0">Для всех, кому важны люди вокруг</SectionTitle>
+  <ul class="flex flex-col gap-3 lg:gap-0">
+    {
+      audience.map((item) => (
+        <li class="flex flex-col gap-0.5 border-b border-divider py-2.5 last:border-b-0 last:pb-0 lg:gap-1 lg:py-4 lg:first:pt-0 lg:last:pb-0">
+          <h3 class="text-15 font-semibold lg:text-17">{item.title}</h3>
+          <p class="text-14 text-ink-secondary lg:text-15">{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+</SectionCard>

@@ -1,0 +1,35 @@
+---
+import SectionCard from "./ui/SectionCard.astro";
+import SectionTitle from "./ui/SectionTitle.astro";
+import { reminders } from "../data/content";
+---
+
+<SectionCard class="flex flex-col gap-4 lg:gap-7">
+  <SectionTitle class="text-balance lg:max-w-reminders-title">
+    Мягкие напоминания, а не навязчивые уведомления
+  </SectionTitle>
+  <ul
+    class="flex flex-col gap-2 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] lg:gap-3"
+  >
+    {
+      reminders.map((item) => (
+        <li
+          class:list={[
+            "flex flex-col gap-1 rounded-14 p-3.5 lg:gap-2 lg:rounded-16 lg:p-5.5",
+            item.highlight ? "bg-primary text-white" : "bg-page",
+          ]}
+        >
+          <h3 class="text-15 font-semibold lg:text-17">{item.title}</h3>
+          <p
+            class:list={[
+              "text-14 leading-145 lg:text-15 lg:leading-150",
+              item.highlight ? "opacity-90 lg:opacity-100" : "text-ink-secondary",
+            ]}
+          >
+            {item.text}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</SectionCard>

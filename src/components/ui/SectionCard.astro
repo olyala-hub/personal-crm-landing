@@ -1,0 +1,16 @@
+---
+// A whole section laid out on one white card.
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={["rounded-20 bg-surface px-5 py-6 lg:rounded-24 lg:px-14 lg:py-12", className]}
+>
+  <slot />
+</section>
